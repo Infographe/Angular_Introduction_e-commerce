@@ -1,22 +1,53 @@
-<h1> {{ title }} </h1>
 
-<table>
 
-    <tr>
-        <td><span class="title">Vente en ligne</span></td>
-        <td><app-auth></app-auth></td>
-    </tr>
-    <tr>
-        <td><app-research></app-research></td>
-        <td><app-cart></app-cart></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <router-outlet name="display"></router-outlet>
-        </td>
-    </tr>
-    <!-- Outlet par défaut pour afficher un message -->
-    <tr>
-        <td colspan="2"><router-outlet></router-outlet></td>
-    </tr>
-</table>
+<div class="container-fluid">
+    <div class="container">
+        <h1> {{ title }} </h1>
+        <div>
+            Compte à rebours : {{ time }}
+            <app-countdown
+                [time]="20"
+                (tick)="countChange($event)">
+            </app-countdown>
+        </div>
+        <table class="table">
+
+            <tr>
+                <td><span class="title">Vente en ligne</span></td>
+                <td><app-auth></app-auth></td>
+            </tr>
+            <tr>
+                <td><app-research></app-research></td>
+                <td><app-cart></app-cart></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <router-outlet name="display"></router-outlet>
+                </td>
+            </tr>
+            <!-- Outlet par défaut pour afficher un message -->
+            <tr>
+                <td colspan="2"><router-outlet></router-outlet></td>
+            </tr>
+        </table>
+        <ul class="list-group">
+            <li 
+                *ngFor="let product of products; let idx = index" 
+                class="list-group-item">
+                <label>
+                    {{product.name}}
+                </label>
+                <label *ngIf="product.stock == 0"  class="warning">
+                    &nbsp;(not avaible)  
+                </label>
+            </li>
+        </ul>
+
+        <h2>Directive - attibute directive : </h2>
+        Label : <label [whiteOnBlack]>whiteOnBlack</label>
+        <br><br>
+        Button : <button [whiteOnBlack]>My button</button>
+
+
+    </div>
+</div>

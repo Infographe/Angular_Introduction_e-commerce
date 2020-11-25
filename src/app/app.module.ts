@@ -12,6 +12,8 @@ import { ProductSelectionkeywordsComponent } from './research/product-selectionk
 import { CartManagementComponent } from './cart/cart-management/cart-management.component';
 import { CartValidationComponent } from './cart/cart-validation/cart-validation.component';
 import { CartDisplayComponent } from './cart/cart-display/cart-display.component';
+import { WhiteOnBlackkDirective } from './white-on-black.directive';
+import { Countdowncomponent } from './countdown/countdown.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CartDisplayComponent } from './cart/cart-display/cart-display.component
     ProductSelectionkeywordsComponent,
     CartManagementComponent,
     CartValidationComponent,
-    CartDisplayComponent
+    CartDisplayComponent,
+    WhiteOnBlackkDirective,
+    Countdowncomponent
   ],
   imports: [
     BrowserModule,
